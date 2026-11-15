@@ -19,14 +19,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <link rel='stylesheet' id='nucleo-fontes-css' href='https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&#038;family=Kalam:wght@400;700&#038;family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&#038;display=swap' media='all' />
 <link rel='stylesheet' id='nucleo-css' href="style.css" media='all' />
+<link rel='stylesheet' id='leaflet-css' href='https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css' media='all' />
 </head>
 <body class="wp-singular page-template-default page page-id-7 wp-theme-nucleo-famalicao">
 <a class="saltar" href="#conteudo">Saltar para o conteúdo</a>
 <header class="topo">
 	<div class="topo__barra envolve">
 		<a class="topo__marca" href="index.html" aria-label="Núcleo de Escuteiros de Famalicão – página inicial">
-			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="52" height="52">
-			<span class="topo__nome">Escuteiros<br>de Famalicão</span>
+			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="84" height="84">
 		</a>
 		<button class="topo__abrir" aria-expanded="false" aria-controls="navegacao"><span class="topo__icone" aria-hidden="true"></span><span class="topo__abrir-txt">Menu</span></button>
 		<nav id="navegacao" class="nav" aria-label="Principal">
@@ -67,276 +67,502 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	<header class="cab ">
 				<div class="cab__texto envolve">
 			<h1 class="cab__titulo">Agrupamentos</h1>
-			<p class="cab__intro">43 agrupamentos no concelho. Procura pela tua freguesia e fala com o Chefe de Agrupamento para saberes como entrar.</p>		</div>
+			<p class="cab__intro">43 agrupamentos, cada um com a sua sede, as suas tradições e o seu lenço. Encontra o teu no mapa e fala com o Chefe de Agrupamento.</p>		</div>
 	</header>
-	<div class="envolve">
-	<div class="filtro">
-		<label for="filtro-ag">Procurar por freguesia, número ou nome</label>
-		<input id="filtro-ag" type="search" value="" placeholder="Ex.: Joane, 0184" autocomplete="off" data-filtro="#lista-ag">
+	<div class="envolve agr">
+	<div class="agr__ferramentas">
+		<div class="filtro filtro--compacto">
+			<label for="filtro-ag">Procurar por freguesia, número ou nome</label>
+			<input id="filtro-ag" type="search" value="" placeholder="Ex.: Joane, 0184" autocomplete="off" data-filtro="#lista-ag">
+		</div>
+		<button class="botao botao--escuro" type="button" id="perto-de-mim">Qual fica mais perto de mim?</button>
 		<p class="filtro__conta" aria-live="polite" data-conta></p>
 	</div>
-	<ul id="lista-ag" class="registo">
-				<li class="registo__item" id="ag-0004" data-procura="0004 vila das aves alfredo rafael ferreira lopes">
-			<span class="registo__num">0004</span>
-			<span class="registo__local">Vila das Aves</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Alfredo Rafael Ferreira Lopes</span>
-			<a class="registo__email" href="mailto:ca.0004@escutismo.pt">ca.0004@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0026" data-procura="0026 pousada de saramagos joaquim fernando rodrigues braga">
-			<span class="registo__num">0026</span>
-			<span class="registo__local">Pousada de Saramagos</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Joaquim Fernando Rodrigues Braga</span>
-			<a class="registo__email" href="mailto:ca.0026@escutismo.pt">ca.0026@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0027" data-procura="0027 bairro jose carlos pereira neiva">
-			<span class="registo__num">0027</span>
-			<span class="registo__local">Bairro</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>José Carlos Pereira Neiva</span>
-			<a class="registo__email" href="mailto:ca.0027@escutismo.pt">ca.0027@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0089" data-procura="0089 delaes luis faustino castro carvalho">
-			<span class="registo__num">0089</span>
-			<span class="registo__local">Delães</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Luís Faustino Castro Carvalho</span>
-			<a class="registo__email" href="mailto:ca.0089@escutismo.pt">ca.0089@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0124" data-procura="0124 lousado sandra cristina de carvalho e silva">
-			<span class="registo__num">0124</span>
-			<span class="registo__local">Lousado</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Sandra Cristina de Carvalho e Silva</span>
-			<a class="registo__email" href="mailto:ca.0124@escutismo.pt">ca.0124@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0125" data-procura="0125 vermoim fabio antonio cruz dinis">
-			<span class="registo__num">0125</span>
-			<span class="registo__local">Vermoim</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Fábio António Cruz Dinis</span>
-			<a class="registo__email" href="mailto:ca.0125@escutismo.pt">ca.0125@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0133" data-procura="0133 mogege andreia daniela fernandes ferreira">
-			<span class="registo__num">0133</span>
-			<span class="registo__local">Mogege</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Andreia Daniela Fernandes Ferreira</span>
-			<a class="registo__email" href="mailto:ca.0133@escutismo.pt">ca.0133@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0144" data-procura="0144 oliveira sao mateus vitor bruno da cunha ferreira araujo">
-			<span class="registo__num">0144</span>
-			<span class="registo__local">Oliveira São Mateus</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Vítor Bruno da Cunha Ferreira Araújo</span>
-			<a class="registo__email" href="mailto:ca.0144@escutismo.pt">ca.0144@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0184" data-procura="0184 joane ana catarina carvalho cunha">
-			<span class="registo__num">0184</span>
-			<span class="registo__local">Joane</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Ana Catarina Carvalho Cunha</span>
-			<a class="registo__email" href="mailto:ca.0184@escutismo.pt">ca.0184@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0185" data-procura="0185 s. tiago de areias susana maria sousa gil">
-			<span class="registo__num">0185</span>
-			<span class="registo__local">S. Tiago de Areias</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Susana Maria Sousa Gil</span>
-			<a class="registo__email" href="mailto:ca.0185@escutismo.pt">ca.0185@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0186" data-procura="0186 vale sao martinho miguel angelo da costa passos">
-			<span class="registo__num">0186</span>
-			<span class="registo__local">Vale São Martinho</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Miguel Ângelo da Costa Passos</span>
-			<a class="registo__email" href="mailto:ca.0186@escutismo.pt">ca.0186@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0201" data-procura="0201 sequeiro florbela gomes nascimento">
-			<span class="registo__num">0201</span>
-			<span class="registo__local">Sequeirô</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Florbela Gomes Nascimento</span>
-			<a class="registo__email" href="mailto:ca.0201@escutismo.pt">ca.0201@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0206" data-procura="0206 santo adriao jose pedro carvalho sousa lopes">
-			<span class="registo__num">0206</span>
-			<span class="registo__local">Santo Adrião</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Jose Pedro Carvalho Sousa Lopes</span>
-			<a class="registo__email" href="mailto:ca.0206@escutismo.pt">ca.0206@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0218" data-procura="0218 brufe francisco raul duraes fernandes">
-			<span class="registo__num">0218</span>
-			<span class="registo__local">Brufe</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Francisco Raul Durães Fernandes</span>
-			<a class="registo__email" href="mailto:ca.0218@escutismo.pt">ca.0218@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0227" data-procura="0227 carreira dany pinheiro da silva">
-			<span class="registo__num">0227</span>
-			<span class="registo__local">Carreira</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Dany Pinheiro da Silva</span>
-			<a class="registo__email" href="mailto:ca.0227@escutismo.pt">ca.0227@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0257" data-procura="0257 requiao daniel jose da cunha sa ribeiro goncalves">
-			<span class="registo__num">0257</span>
-			<span class="registo__local">Requião</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Daniel José da Cunha Sá Ribeiro Gonçalves</span>
-			<a class="registo__email" href="mailto:ca.0257@escutismo.pt">ca.0257@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0261" data-procura="0261 santa maria de landim marco andre mendes silva">
-			<span class="registo__num">0261</span>
-			<span class="registo__local">Santa Maria de Landim</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Marco André Mendes Silva</span>
-			<a class="registo__email" href="mailto:ca.0261@escutismo.pt">ca.0261@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0268" data-procura="0268 avidos simao pedro dias ferreira">
-			<span class="registo__num">0268</span>
-			<span class="registo__local">Avidos</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Simão Pedro Dias Ferreira</span>
-			<a class="registo__email" href="mailto:ca.0268@escutismo.pt">ca.0268@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0285" data-procura="0285 antas sao tiago vitor manuel lopes gomes da cruz">
-			<span class="registo__num">0285</span>
-			<span class="registo__local">Antas São Tiago</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Vítor Manuel Lopes Gomes da Cruz</span>
-			<a class="registo__email" href="mailto:ca.0285@escutismo.pt">ca.0285@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0291" data-procura="0291 calendario ana isabel mesquita de sousa">
-			<span class="registo__num">0291</span>
-			<span class="registo__local">Calendário</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Ana Isabel Mesquita de Sousa</span>
-			<a class="registo__email" href="mailto:ca.0291@escutismo.pt">ca.0291@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0311" data-procura="0311 lemenhe rui miguel gomes rodrigues">
-			<span class="registo__num">0311</span>
-			<span class="registo__local">Lemenhe</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Rui Miguel Gomes Rodrigues</span>
-			<a class="registo__email" href="mailto:ca.0311@escutismo.pt">ca.0311@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0312" data-procura="0312 louro ana catarina alves moreira carvalho">
-			<span class="registo__num">0312</span>
-			<span class="registo__local">Louro</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Ana Catarina Alves Moreira Carvalho</span>
-			<a class="registo__email" href="mailto:ca.0312@escutismo.pt">ca.0312@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0330" data-procura="0330 s. pedro de esmeriz jose luis oliveira cardoso">
-			<span class="registo__num">0330</span>
-			<span class="registo__local">S. Pedro de Esmeriz</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>José Luís Oliveira Cardoso</span>
-			<a class="registo__email" href="mailto:ca.0330@escutismo.pt">ca.0330@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0349" data-procura="0349 mouquim emanuel bruno carvalho lima">
-			<span class="registo__num">0349</span>
-			<span class="registo__local">Mouquim</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Emanuel Bruno Carvalho Lima</span>
-			<a class="registo__email" href="mailto:ca.0349@escutismo.pt">ca.0349@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0357" data-procura="0357 gaviao jose alexandre couto crespo">
-			<span class="registo__num">0357</span>
-			<span class="registo__local">Gavião</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>José Alexandre Couto Crespo</span>
-			<a class="registo__email" href="mailto:ca.0357@escutismo.pt">ca.0357@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0364" data-procura="0364 vale sao cosme jose nuno marques moreira">
-			<span class="registo__num">0364</span>
-			<span class="registo__local">Vale São Cosme</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>José Nuno Marques Moreira</span>
-			<a class="registo__email" href="mailto:ca.0364@escutismo.pt">ca.0364@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0385" data-procura="0385 riba de ave paulo jorge cardoso carvalho">
-			<span class="registo__num">0385</span>
-			<span class="registo__local">Riba de Ave</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Paulo Jorge Cardoso Carvalho</span>
-			<a class="registo__email" href="mailto:ca.0385@escutismo.pt">ca.0385@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0387" data-procura="0387 palmeira luis miguel paiva da silva">
-			<span class="registo__num">0387</span>
-			<span class="registo__local">Palmeira</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Luís Miguel Paiva da Silva</span>
-			<a class="registo__email" href="mailto:ca.0387@escutismo.pt">ca.0387@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0441" data-procura="0441 casteloes tiago daniel andrade goncalves">
-			<span class="registo__num">0441</span>
-			<span class="registo__local">Castelões</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Tiago Daniel Andrade Goncalves</span>
-			<a class="registo__email" href="mailto:ca.0441@escutismo.pt">ca.0441@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0442" data-procura="0442 oliveira santa maria fernando benjamim machado de abreu cardoso">
-			<span class="registo__num">0442</span>
-			<span class="registo__local">Oliveira Santa Maria</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Fernando Benjamim Machado de Abreu Cardoso</span>
-			<a class="registo__email" href="mailto:ca.0442@escutismo.pt">ca.0442@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0444" data-procura="0444 ruivaes alexandre manuel cunha silva">
-			<span class="registo__num">0444</span>
-			<span class="registo__local">Ruivães</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Alexandre Manuel Cunha Silva</span>
-			<a class="registo__email" href="mailto:ca.0444@escutismo.pt">ca.0444@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0445" data-procura="0445 cabecudos luis paulo oliveira ramos">
-			<span class="registo__num">0445</span>
-			<span class="registo__local">Cabeçudos</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Luis Paulo Oliveira Ramos</span>
-			<a class="registo__email" href="mailto:ca.0445@escutismo.pt">ca.0445@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0463" data-procura="0463 seide patricia isabel costa faria">
-			<span class="registo__num">0463</span>
-			<span class="registo__local">Seide</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Patrícia Isabel Costa Faria</span>
-			<a class="registo__email" href="mailto:ca.0463@escutismo.pt">ca.0463@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0464" data-procura="0464 telhado joao paulo alves da silva">
-			<span class="registo__num">0464</span>
-			<span class="registo__local">Telhado</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>João Paulo Alves da Silva</span>
-			<a class="registo__email" href="mailto:ca.0464@escutismo.pt">ca.0464@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0526" data-procura="0526 jesufrei ana cristina campos cardoso">
-			<span class="registo__num">0526</span>
-			<span class="registo__local">Jesufrei</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Ana Cristina Campos Cardoso</span>
-			<a class="registo__email" href="mailto:ca.0526@escutismo.pt">ca.0526@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0558" data-procura="0558 pedome fernando sergio mendes guimaraes">
-			<span class="registo__num">0558</span>
-			<span class="registo__local">Pedome</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Fernando Sérgio Mendes Guimarães</span>
-			<a class="registo__email" href="mailto:ca.0558@escutismo.pt">ca.0558@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-0620" data-procura="0620 sao tiago cruz artur alexandre veloso jorge">
-			<span class="registo__num">0620</span>
-			<span class="registo__local">São Tiago Cruz</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Artur Alexandre Veloso Jorge</span>
-			<a class="registo__email" href="mailto:ca.0620@escutismo.pt">ca.0620@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1046" data-procura="1046 santa maria de nine susana patricia de araujo e silva morais">
-			<span class="registo__num">1046</span>
-			<span class="registo__local">Santa Maria de Nine</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Susana Patricia de Araújo e Silva Morais</span>
-			<a class="registo__email" href="mailto:ca.1046@escutismo.pt">ca.1046@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1087" data-procura="1087 vilarinho das cambas claudia sofia costa pereira">
-			<span class="registo__num">1087</span>
-			<span class="registo__local">Vilarinho das Cambas</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Claudia Sofia Costa Pereira</span>
-			<a class="registo__email" href="mailto:ca.1087@escutismo.pt">ca.1087@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1161" data-procura="1161 fradelos pedro filipe peniche da costa">
-			<span class="registo__num">1161</span>
-			<span class="registo__local">Fradelos</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Pedro Filipe Peniche da Costa</span>
-			<a class="registo__email" href="mailto:ca.1161@escutismo.pt">ca.1161@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1218" data-procura="1218 lagoa ana filipa alves costa">
-			<span class="registo__num">1218</span>
-			<span class="registo__local">Lagoa</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Ana Filipa Alves Costa</span>
-			<a class="registo__email" href="mailto:ca.1218@escutismo.pt">ca.1218@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1274" data-procura="1274 ribeirao joao miguel alves de pinho">
-			<span class="registo__num">1274</span>
-			<span class="registo__local">Ribeirão</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>João Miguel Alves de Pinho</span>
-			<a class="registo__email" href="mailto:ca.1274@escutismo.pt">ca.1274@escutismo.pt</a>
-		</li>
-				<li class="registo__item" id="ag-1387" data-procura="1387 gondifelos sara alexandra ribeiro da silva">
-			<span class="registo__num">1387</span>
-			<span class="registo__local">Gondifelos</span>
-			<span class="registo__ca"><span class="registo__rot">Chefe de Agrupamento</span>Sara Alexandra Ribeiro da Silva</span>
-			<a class="registo__email" href="mailto:ca.1387@escutismo.pt">ca.1387@escutismo.pt</a>
-		</li>
-			</ul>
+
+	<div class="agr__grelha">
+		<div class="agr__mapa-caixa">
+			<div id="mapa-ag" class="agr__mapa" role="region" aria-label="Mapa dos agrupamentos"></div>
+			<p class="nota agr__nota">Toca num lenço para ver o agrupamento. Posições pela sede da freguesia.</p>
+		</div>
+		<ul id="lista-ag" class="emblemas">
+						<li class="emblema" id="ag-0004" data-n="0004" data-procura="0004 vila das aves alfredo rafael ferreira lopes">
+				<span class="emblema__selo" aria-hidden="true"><span>4</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Vila das Aves</h2>
+					<p class="emblema__num">Agrupamento 0004<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Alfredo Rafael Ferreira Lopes, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0004@escutismo.pt">ca.0004@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0004">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0026" data-n="0026" data-procura="0026 pousada de saramagos joaquim fernando rodrigues braga">
+				<span class="emblema__selo" aria-hidden="true"><span>26</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Pousada de Saramagos</h2>
+					<p class="emblema__num">Agrupamento 0026<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Joaquim Fernando Rodrigues Braga, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0026@escutismo.pt">ca.0026@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0026">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0027" data-n="0027" data-procura="0027 bairro jose carlos pereira neiva">
+				<span class="emblema__selo" aria-hidden="true"><span>27</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Bairro</h2>
+					<p class="emblema__num">Agrupamento 0027<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">José Carlos Pereira Neiva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0027@escutismo.pt">ca.0027@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0027">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0089" data-n="0089" data-procura="0089 delaes luis faustino castro carvalho">
+				<span class="emblema__selo" aria-hidden="true"><span>89</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Delães</h2>
+					<p class="emblema__num">Agrupamento 0089<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Luís Faustino Castro Carvalho, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0089@escutismo.pt">ca.0089@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0089">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0124" data-n="0124" data-procura="0124 lousado sandra cristina de carvalho e silva">
+				<span class="emblema__selo" aria-hidden="true"><span>124</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Lousado</h2>
+					<p class="emblema__num">Agrupamento 0124<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Sandra Cristina de Carvalho e Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0124@escutismo.pt">ca.0124@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0124">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0125" data-n="0125" data-procura="0125 vermoim fabio antonio cruz dinis">
+				<span class="emblema__selo" aria-hidden="true"><span>125</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Vermoim</h2>
+					<p class="emblema__num">Agrupamento 0125<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Fábio António Cruz Dinis, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0125@escutismo.pt">ca.0125@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0125">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0133" data-n="0133" data-procura="0133 mogege andreia daniela fernandes ferreira">
+				<span class="emblema__selo" aria-hidden="true"><span>133</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Mogege</h2>
+					<p class="emblema__num">Agrupamento 0133<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Andreia Daniela Fernandes Ferreira, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0133@escutismo.pt">ca.0133@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0133">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0144" data-n="0144" data-procura="0144 oliveira sao mateus vitor bruno da cunha ferreira araujo">
+				<span class="emblema__selo" aria-hidden="true"><span>144</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Oliveira São Mateus</h2>
+					<p class="emblema__num">Agrupamento 0144<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Vítor Bruno da Cunha Ferreira Araújo, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0144@escutismo.pt">ca.0144@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0144">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0184" data-n="0184" data-procura="0184 joane ana catarina carvalho cunha">
+				<span class="emblema__selo" aria-hidden="true"><span>184</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Joane</h2>
+					<p class="emblema__num">Agrupamento 0184<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Ana Catarina Carvalho Cunha, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0184@escutismo.pt">ca.0184@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0184">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0185" data-n="0185" data-procura="0185 s. tiago de areias susana maria sousa gil">
+				<span class="emblema__selo" aria-hidden="true"><span>185</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">S. Tiago de Areias</h2>
+					<p class="emblema__num">Agrupamento 0185<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Susana Maria Sousa Gil, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0185@escutismo.pt">ca.0185@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0185">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0186" data-n="0186" data-procura="0186 vale sao martinho miguel angelo da costa passos">
+				<span class="emblema__selo" aria-hidden="true"><span>186</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Vale São Martinho</h2>
+					<p class="emblema__num">Agrupamento 0186<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Miguel Ângelo da Costa Passos, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0186@escutismo.pt">ca.0186@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0186">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0201" data-n="0201" data-procura="0201 sequeiro florbela gomes nascimento">
+				<span class="emblema__selo" aria-hidden="true"><span>201</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Sequeirô</h2>
+					<p class="emblema__num">Agrupamento 0201<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Florbela Gomes Nascimento, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0201@escutismo.pt">ca.0201@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0201">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0206" data-n="0206" data-procura="0206 santo adriao jose pedro carvalho sousa lopes">
+				<span class="emblema__selo" aria-hidden="true"><span>206</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Santo Adrião</h2>
+					<p class="emblema__num">Agrupamento 0206<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Jose Pedro Carvalho Sousa Lopes, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0206@escutismo.pt">ca.0206@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0206">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0218" data-n="0218" data-procura="0218 brufe francisco raul duraes fernandes">
+				<span class="emblema__selo" aria-hidden="true"><span>218</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Brufe</h2>
+					<p class="emblema__num">Agrupamento 0218<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Francisco Raul Durães Fernandes, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0218@escutismo.pt">ca.0218@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0218">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0227" data-n="0227" data-procura="0227 carreira dany pinheiro da silva">
+				<span class="emblema__selo" aria-hidden="true"><span>227</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Carreira</h2>
+					<p class="emblema__num">Agrupamento 0227<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Dany Pinheiro da Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0227@escutismo.pt">ca.0227@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0227">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0257" data-n="0257" data-procura="0257 requiao daniel jose da cunha sa ribeiro goncalves">
+				<span class="emblema__selo" aria-hidden="true"><span>257</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Requião</h2>
+					<p class="emblema__num">Agrupamento 0257<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Daniel José da Cunha Sá Ribeiro Gonçalves, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0257@escutismo.pt">ca.0257@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0257">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0261" data-n="0261" data-procura="0261 santa maria de landim marco andre mendes silva">
+				<span class="emblema__selo" aria-hidden="true"><span>261</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Santa Maria de Landim</h2>
+					<p class="emblema__num">Agrupamento 0261<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Marco André Mendes Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0261@escutismo.pt">ca.0261@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0261">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0268" data-n="0268" data-procura="0268 avidos simao pedro dias ferreira">
+				<span class="emblema__selo" aria-hidden="true"><span>268</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Avidos</h2>
+					<p class="emblema__num">Agrupamento 0268<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Simão Pedro Dias Ferreira, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0268@escutismo.pt">ca.0268@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0268">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0285" data-n="0285" data-procura="0285 antas sao tiago vitor manuel lopes gomes da cruz">
+				<span class="emblema__selo" aria-hidden="true"><span>285</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Antas São Tiago</h2>
+					<p class="emblema__num">Agrupamento 0285<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Vítor Manuel Lopes Gomes da Cruz, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0285@escutismo.pt">ca.0285@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0285">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0291" data-n="0291" data-procura="0291 calendario ana isabel mesquita de sousa">
+				<span class="emblema__selo" aria-hidden="true"><span>291</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Calendário</h2>
+					<p class="emblema__num">Agrupamento 0291<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Ana Isabel Mesquita de Sousa, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0291@escutismo.pt">ca.0291@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0291">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0311" data-n="0311" data-procura="0311 lemenhe rui miguel gomes rodrigues">
+				<span class="emblema__selo" aria-hidden="true"><span>311</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Lemenhe</h2>
+					<p class="emblema__num">Agrupamento 0311<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Rui Miguel Gomes Rodrigues, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0311@escutismo.pt">ca.0311@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0311">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0312" data-n="0312" data-procura="0312 louro ana catarina alves moreira carvalho">
+				<span class="emblema__selo" aria-hidden="true"><span>312</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Louro</h2>
+					<p class="emblema__num">Agrupamento 0312<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Ana Catarina Alves Moreira Carvalho, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0312@escutismo.pt">ca.0312@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0312">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0330" data-n="0330" data-procura="0330 s. pedro de esmeriz jose luis oliveira cardoso">
+				<span class="emblema__selo" aria-hidden="true"><span>330</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">S. Pedro de Esmeriz</h2>
+					<p class="emblema__num">Agrupamento 0330<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">José Luís Oliveira Cardoso, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0330@escutismo.pt">ca.0330@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0330">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0349" data-n="0349" data-procura="0349 mouquim emanuel bruno carvalho lima">
+				<span class="emblema__selo" aria-hidden="true"><span>349</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Mouquim</h2>
+					<p class="emblema__num">Agrupamento 0349<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Emanuel Bruno Carvalho Lima, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0349@escutismo.pt">ca.0349@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0349">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0357" data-n="0357" data-procura="0357 gaviao jose alexandre couto crespo">
+				<span class="emblema__selo" aria-hidden="true"><span>357</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Gavião</h2>
+					<p class="emblema__num">Agrupamento 0357<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">José Alexandre Couto Crespo, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0357@escutismo.pt">ca.0357@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0357">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0364" data-n="0364" data-procura="0364 vale sao cosme jose nuno marques moreira">
+				<span class="emblema__selo" aria-hidden="true"><span>364</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Vale São Cosme</h2>
+					<p class="emblema__num">Agrupamento 0364<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">José Nuno Marques Moreira, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0364@escutismo.pt">ca.0364@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0364">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0385" data-n="0385" data-procura="0385 riba de ave paulo jorge cardoso carvalho">
+				<span class="emblema__selo" aria-hidden="true"><span>385</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Riba de Ave</h2>
+					<p class="emblema__num">Agrupamento 0385<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Paulo Jorge Cardoso Carvalho, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0385@escutismo.pt">ca.0385@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0385">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0387" data-n="0387" data-procura="0387 palmeira luis miguel paiva da silva">
+				<span class="emblema__selo" aria-hidden="true"><span>387</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Palmeira</h2>
+					<p class="emblema__num">Agrupamento 0387<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Luís Miguel Paiva da Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0387@escutismo.pt">ca.0387@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0387">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0441" data-n="0441" data-procura="0441 casteloes tiago daniel andrade goncalves">
+				<span class="emblema__selo" aria-hidden="true"><span>441</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Castelões</h2>
+					<p class="emblema__num">Agrupamento 0441<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Tiago Daniel Andrade Goncalves, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0441@escutismo.pt">ca.0441@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0441">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0442" data-n="0442" data-procura="0442 oliveira santa maria fernando benjamim machado de abreu cardoso">
+				<span class="emblema__selo" aria-hidden="true"><span>442</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Oliveira Santa Maria</h2>
+					<p class="emblema__num">Agrupamento 0442<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Fernando Benjamim Machado de Abreu Cardoso, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0442@escutismo.pt">ca.0442@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0442">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0444" data-n="0444" data-procura="0444 ruivaes alexandre manuel cunha silva">
+				<span class="emblema__selo" aria-hidden="true"><span>444</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Ruivães</h2>
+					<p class="emblema__num">Agrupamento 0444<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Alexandre Manuel Cunha Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0444@escutismo.pt">ca.0444@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0444">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0445" data-n="0445" data-procura="0445 cabecudos luis paulo oliveira ramos">
+				<span class="emblema__selo" aria-hidden="true"><span>445</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Cabeçudos</h2>
+					<p class="emblema__num">Agrupamento 0445<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Luis Paulo Oliveira Ramos, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0445@escutismo.pt">ca.0445@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0445">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0463" data-n="0463" data-procura="0463 seide patricia isabel costa faria">
+				<span class="emblema__selo" aria-hidden="true"><span>463</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Seide</h2>
+					<p class="emblema__num">Agrupamento 0463<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Patrícia Isabel Costa Faria, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0463@escutismo.pt">ca.0463@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0463">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0464" data-n="0464" data-procura="0464 telhado joao paulo alves da silva">
+				<span class="emblema__selo" aria-hidden="true"><span>464</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Telhado</h2>
+					<p class="emblema__num">Agrupamento 0464<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">João Paulo Alves da Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0464@escutismo.pt">ca.0464@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0464">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0526" data-n="0526" data-procura="0526 jesufrei ana cristina campos cardoso">
+				<span class="emblema__selo" aria-hidden="true"><span>526</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Jesufrei</h2>
+					<p class="emblema__num">Agrupamento 0526<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Ana Cristina Campos Cardoso, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0526@escutismo.pt">ca.0526@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0526">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0558" data-n="0558" data-procura="0558 pedome fernando sergio mendes guimaraes">
+				<span class="emblema__selo" aria-hidden="true"><span>558</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Pedome</h2>
+					<p class="emblema__num">Agrupamento 0558<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Fernando Sérgio Mendes Guimarães, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0558@escutismo.pt">ca.0558@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0558">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-0620" data-n="0620" data-procura="0620 sao tiago cruz artur alexandre veloso jorge">
+				<span class="emblema__selo" aria-hidden="true"><span>620</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">São Tiago Cruz</h2>
+					<p class="emblema__num">Agrupamento 0620<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Artur Alexandre Veloso Jorge, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.0620@escutismo.pt">ca.0620@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="0620">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1046" data-n="1046" data-procura="1046 santa maria de nine susana patricia de araujo e silva morais">
+				<span class="emblema__selo" aria-hidden="true"><span>1046</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Santa Maria de Nine</h2>
+					<p class="emblema__num">Agrupamento 1046<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Susana Patricia de Araújo e Silva Morais, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1046@escutismo.pt">ca.1046@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1046">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1087" data-n="1087" data-procura="1087 vilarinho das cambas claudia sofia costa pereira">
+				<span class="emblema__selo" aria-hidden="true"><span>1087</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Vilarinho das Cambas</h2>
+					<p class="emblema__num">Agrupamento 1087<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Claudia Sofia Costa Pereira, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1087@escutismo.pt">ca.1087@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1087">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1161" data-n="1161" data-procura="1161 fradelos pedro filipe peniche da costa">
+				<span class="emblema__selo" aria-hidden="true"><span>1161</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Fradelos</h2>
+					<p class="emblema__num">Agrupamento 1161<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Pedro Filipe Peniche da Costa, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1161@escutismo.pt">ca.1161@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1161">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1218" data-n="1218" data-procura="1218 lagoa ana filipa alves costa">
+				<span class="emblema__selo" aria-hidden="true"><span>1218</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Lagoa</h2>
+					<p class="emblema__num">Agrupamento 1218<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Ana Filipa Alves Costa, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1218@escutismo.pt">ca.1218@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1218">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1274" data-n="1274" data-procura="1274 ribeirao joao miguel alves de pinho">
+				<span class="emblema__selo" aria-hidden="true"><span>1274</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Ribeirão</h2>
+					<p class="emblema__num">Agrupamento 1274<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">João Miguel Alves de Pinho, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1274@escutismo.pt">ca.1274@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1274">Ver no mapa</button>					</p>
+				</div>
+			</li>
+						<li class="emblema" id="ag-1387" data-n="1387" data-procura="1387 gondifelos sara alexandra ribeiro da silva">
+				<span class="emblema__selo" aria-hidden="true"><span>1387</span></span>
+				<div class="emblema__texto">
+					<h2 class="emblema__local">Gondifelos</h2>
+					<p class="emblema__num">Agrupamento 1387<span class="emblema__dist" data-dist></span></p>
+					<p class="emblema__ca">Sara Alexandra Ribeiro da Silva, Chefe de Agrupamento</p>
+					<p class="emblema__acoes">
+						<a href="mailto:ca.1387@escutismo.pt">ca.1387@escutismo.pt</a>
+						<button type="button" class="emblema__ver" data-ver="1387">Ver no mapa</button>					</p>
+				</div>
+			</li>
+					</ul>
+	</div>
 	<p class="vazio" data-vazio hidden>Nenhum agrupamento corresponde à pesquisa. Experimenta só o nome da freguesia, ou escreve para <a href="mailto:geral.famalicao@escutismo.pt">geral.famalicao@escutismo.pt</a> e indicamos-te o mais perto.</p>
 </div>
+<script type="application/json" id="dados-ag">[{"n":"0004","l":"Vila das Aves","ca":"Alfredo Rafael Ferreira Lopes","e":"ca.0004@escutismo.pt","lat":41.37012,"lng":-8.40838,"apx":false},{"n":"0026","l":"Pousada de Saramagos","ca":"Joaquim Fernando Rodrigues Braga","e":"ca.0026@escutismo.pt","lat":41.42819,"lng":-8.43641,"apx":false},{"n":"0027","l":"Bairro","ca":"Jos\u00e9 Carlos Pereira Neiva","e":"ca.0027@escutismo.pt","lat":41.37333,"lng":-8.425,"apx":false},{"n":"0089","l":"Del\u00e3es","ca":"Lu\u00eds Faustino Castro Carvalho","e":"ca.0089@escutismo.pt","lat":41.38528,"lng":-8.41194,"apx":false},{"n":"0124","l":"Lousado","ca":"Sandra Cristina de Carvalho e Silva","e":"ca.0124@escutismo.pt","lat":41.35895,"lng":-8.53028,"apx":false},{"n":"0125","l":"Vermoim","ca":"F\u00e1bio Ant\u00f3nio Cruz Dinis","e":"ca.0125@escutismo.pt","lat":41.41806,"lng":-8.45194,"apx":false},{"n":"0133","l":"Mogege","ca":"Andreia Daniela Fernandes Ferreira","e":"ca.0133@escutismo.pt","lat":41.42241,"lng":-8.4115,"apx":false},{"n":"0144","l":"Oliveira S\u00e3o Mateus","ca":"V\u00edtor Bruno da Cunha Ferreira Ara\u00fajo","e":"ca.0144@escutismo.pt","lat":41.39401,"lng":-8.41225,"apx":false},{"n":"0184","l":"Joane","ca":"Ana Catarina Carvalho Cunha","e":"ca.0184@escutismo.pt","lat":41.43888,"lng":-8.41883,"apx":false},{"n":"0185","l":"S. Tiago de Areias","ca":"Susana Maria Sousa Gil","e":"ca.0185@escutismo.pt","lat":41.36542,"lng":-8.47632,"apx":false},{"n":"0186","l":"Vale S\u00e3o Martinho","ca":"Miguel \u00c2ngelo da Costa Passos","e":"ca.0186@escutismo.pt","lat":41.42835,"lng":-8.47704,"apx":false},{"n":"0201","l":"Sequeir\u00f4","ca":"Florbela Gomes Nascimento","e":"ca.0201@escutismo.pt","lat":41.357,"lng":-8.425,"apx":true},{"n":"0206","l":"Santo Adri\u00e3o","ca":"Jose Pedro Carvalho Sousa Lopes","e":"ca.0206@escutismo.pt","lat":41.4144,"lng":-8.52216,"apx":true},{"n":"0218","l":"Brufe","ca":"Francisco Raul Dur\u00e3es Fernandes","e":"ca.0218@escutismo.pt","lat":41.41296,"lng":-8.53964,"apx":false},{"n":"0227","l":"Carreira","ca":"Dany Pinheiro da Silva","e":"ca.0227@escutismo.pt","lat":41.38291,"lng":-8.43347,"apx":false},{"n":"0257","l":"Requi\u00e3o","ca":"Daniel Jos\u00e9 da Cunha S\u00e1 Ribeiro Gon\u00e7alves","e":"ca.0257@escutismo.pt","lat":41.41232,"lng":-8.47834,"apx":false},{"n":"0261","l":"Santa Maria de Landim","ca":"Marco Andr\u00e9 Mendes Silva","e":"ca.0261@escutismo.pt","lat":41.38,"lng":-8.465,"apx":false},{"n":"0268","l":"Avidos","ca":"Sim\u00e3o Pedro Dias Ferreira","e":"ca.0268@escutismo.pt","lat":41.37889,"lng":-8.485,"apx":false},{"n":"0285","l":"Antas S\u00e3o Tiago","ca":"V\u00edtor Manuel Lopes Gomes da Cruz","e":"ca.0285@escutismo.pt","lat":41.40472,"lng":-8.50444,"apx":false},{"n":"0291","l":"Calend\u00e1rio","ca":"Ana Isabel Mesquita de Sousa","e":"ca.0291@escutismo.pt","lat":41.40014,"lng":-8.53453,"apx":false},{"n":"0311","l":"Lemenhe","ca":"Rui Miguel Gomes Rodrigues","e":"ca.0311@escutismo.pt","lat":41.45381,"lng":-8.5317,"apx":false},{"n":"0312","l":"Louro","ca":"Ana Catarina Alves Moreira Carvalho","e":"ca.0312@escutismo.pt","lat":41.43611,"lng":-8.54,"apx":false},{"n":"0330","l":"S. Pedro de Esmeriz","ca":"Jos\u00e9 Lu\u00eds Oliveira Cardoso","e":"ca.0330@escutismo.pt","lat":41.37693,"lng":-8.52154,"apx":false},{"n":"0349","l":"Mouquim","ca":"Emanuel Bruno Carvalho Lima","e":"ca.0349@escutismo.pt","lat":41.43885,"lng":-8.5251,"apx":false},{"n":"0357","l":"Gavi\u00e3o","ca":"Jos\u00e9 Alexandre Couto Crespo","e":"ca.0357@escutismo.pt","lat":41.42778,"lng":-8.51417,"apx":false},{"n":"0364","l":"Vale S\u00e3o Cosme","ca":"Jos\u00e9 Nuno Marques Moreira","e":"ca.0364@escutismo.pt","lat":41.44889,"lng":-8.46722,"apx":false},{"n":"0385","l":"Riba de Ave","ca":"Paulo Jorge Cardoso Carvalho","e":"ca.0385@escutismo.pt","lat":41.39454,"lng":-8.38536,"apx":false},{"n":"0387","l":"Palmeira","ca":"Lu\u00eds Miguel Paiva da Silva","e":"ca.0387@escutismo.pt","lat":41.36333,"lng":-8.49293,"apx":false},{"n":"0441","l":"Castel\u00f5es","ca":"Tiago Daniel Andrade Goncalves","e":"ca.0441@escutismo.pt","lat":41.41204,"lng":-8.42997,"apx":false},{"n":"0442","l":"Oliveira Santa Maria","ca":"Fernando Benjamim Machado de Abreu Cardoso","e":"ca.0442@escutismo.pt","lat":41.40624,"lng":-8.40094,"apx":false},{"n":"0444","l":"Ruiv\u00e3es","ca":"Alexandre Manuel Cunha Silva","e":"ca.0444@escutismo.pt","lat":41.40252,"lng":-8.43821,"apx":false},{"n":"0445","l":"Cabe\u00e7udos","ca":"Luis Paulo Oliveira Ramos","e":"ca.0445@escutismo.pt","lat":41.37779,"lng":-8.50536,"apx":false},{"n":"0463","l":"Seide","ca":"Patr\u00edcia Isabel Costa Faria","e":"ca.0463@escutismo.pt","lat":41.3974,"lng":-8.4726,"apx":false},{"n":"0464","l":"Telhado","ca":"Jo\u00e3o Paulo Alves da Silva","e":"ca.0464@escutismo.pt","lat":41.454,"lng":-8.45347,"apx":false},{"n":"0526","l":"Jesufrei","ca":"Ana Cristina Campos Cardoso","e":"ca.0526@escutismo.pt","lat":41.45739,"lng":-8.50415,"apx":false},{"n":"0558","l":"Pedome","ca":"Fernando S\u00e9rgio Mendes Guimar\u00e3es","e":"ca.0558@escutismo.pt","lat":41.41591,"lng":-8.38787,"apx":false},{"n":"0620","l":"S\u00e3o Tiago Cruz","ca":"Artur Alexandre Veloso Jorge","e":"ca.0620@escutismo.pt","lat":41.44333,"lng":-8.49556,"apx":false},{"n":"1046","l":"Santa Maria de Nine","ca":"Susana Patricia de Ara\u00fajo e Silva Morais","e":"ca.1046@escutismo.pt","lat":41.46472,"lng":-8.54389,"apx":false},{"n":"1087","l":"Vilarinho das Cambas","ca":"Claudia Sofia Costa Pereira","e":"ca.1087@escutismo.pt","lat":41.38615,"lng":-8.56232,"apx":false},{"n":"1161","l":"Fradelos","ca":"Pedro Filipe Peniche da Costa","e":"ca.1161@escutismo.pt","lat":41.36889,"lng":-8.59806,"apx":false},{"n":"1218","l":"Lagoa","ca":"Ana Filipa Alves Costa","e":"ca.1218@escutismo.pt","lat":41.38111,"lng":-8.49139,"apx":false},{"n":"1274","l":"Ribeir\u00e3o","ca":"Jo\u00e3o Miguel Alves de Pinho","e":"ca.1274@escutismo.pt","lat":41.36165,"lng":-8.56012,"apx":false},{"n":"1387","l":"Gondifelos","ca":"Sara Alexandra Ribeiro da Silva","e":"ca.1387@escutismo.pt","lat":41.42458,"lng":-8.6079,"apx":false}]</script>
 </main>
 <footer class="rodape">
 	<div class="envolve rodape__grelha">
@@ -367,7 +593,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</div>
 	</div>
 	<div class="envolve rodape__fim">
-		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 2.</p>
+		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 3.</p>
 		<p><a href="politica-de-privacidade.html">Política de Privacidade</a> <a href="politica-de-cookies.html">Política de Cookies</a></p>
 	</div>
 </footer>
@@ -375,6 +601,8 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/nucleo-famalicao/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="nucleo-js" src="site.js"></script>
+<script id="leaflet-js" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script id="nucleo-mapa-js" src="mapa.js"></script>
 <script>
 document.addEventListener('submit',function(e){var f=e.target;
  if(f.classList.contains('procura__form')){e.preventDefault();var v=f.querySelector('select').value;location.href='agrupamentos.html'+(v?'#q='+encodeURIComponent(v):'');return;}

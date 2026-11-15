@@ -25,8 +25,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <header class="topo">
 	<div class="topo__barra envolve">
 		<a class="topo__marca" href="index.html" aria-label="Núcleo de Escuteiros de Famalicão – página inicial">
-			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="52" height="52">
-			<span class="topo__nome">Escuteiros<br>de Famalicão</span>
+			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="84" height="84">
 		</a>
 		<button class="topo__abrir" aria-expanded="false" aria-controls="navegacao"><span class="topo__icone" aria-hidden="true"></span><span class="topo__abrir-txt">Menu</span></button>
 		<nav id="navegacao" class="nav" aria-label="Principal">
@@ -70,96 +69,120 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<p class="cab__intro">Atividades do Núcleo abertas aos agrupamentos, aos dirigentes e às famílias.</p>		</div>
 	</header>
 	<div class="envolve">
-	<section aria-labelledby="t-prox">
+	<section class="proxima" id="proxima" aria-live="polite" hidden></section>
+
+	<section class="calendario" id="calendario" aria-labelledby="t-cal" hidden>
+		<div class="calendario__cab">
+			<h2 id="t-cal" class="titulo-bloco calendario__mes" data-mes></h2>
+			<div class="calendario__nav">
+				<button type="button" class="botao-icone" data-mover="-1" aria-label="Mês anterior"><span aria-hidden="true">‹</span></button>
+				<button type="button" class="botao-texto" data-mover="0">Este mês</button>
+				<button type="button" class="botao-icone" data-mover="1" aria-label="Mês seguinte"><span aria-hidden="true">›</span></button>
+			</div>
+		</div>
+		<div class="calendario__corpo">
+			<table class="calendario__grelha" role="grid">
+				<thead><tr><th scope="col" abbr="segunda">S</th><th scope="col" abbr="terça">T</th><th scope="col" abbr="quarta">Q</th><th scope="col" abbr="quinta">Q</th><th scope="col" abbr="sexta">S</th><th scope="col" abbr="sábado">S</th><th scope="col" abbr="domingo">D</th></tr></thead>
+				<tbody data-dias></tbody>
+			</table>
+			<div class="calendario__lista">
+				<p class="calendario__vazio" data-vazio-mes>Não há atividades do Núcleo neste mês.</p>
+				<ul class="eventos eventos--compacto" data-lista-mes></ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="agenda-todas" aria-labelledby="t-prox">
 		<h2 id="t-prox" class="titulo-bloco">Próximas atividades</h2>
-					<ul class="eventos">	<li class="evento">
+					<ul class="eventos">	<li class="evento" data-ev='{&quot;t&quot;:&quot;Exemplo: Luz da Paz de Bel\u00e9m 2026&quot;,&quot;i&quot;:&quot;2026-12-18&quot;,&quot;f&quot;:&quot;2026-12-18&quot;,&quot;h&quot;:&quot;21h00&quot;,&quot;l&quot;:&quot;A confirmar&quot;,&quot;r&quot;:&quot;Atividade de demonstra\u00e7\u00e3o para mostrar como fica a agenda. Data e local por confirmar.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">18</span><span class="evento__mes">dez. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Exemplo: Luz da Paz de Belém 2026</h3>
 			<p class="evento__resumo">Atividade de demonstração para mostrar como fica a agenda. Data e local por confirmar.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>18 de dezembro de 2026<br>21h00</dd></div>
-			<div><dt>Onde</dt><dd>A confirmar</dd></div>			<div><dt>Para quem</dt><dd>Todos os agrupamentos</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>A confirmar</dd></div>			<div><dt>Para quem</dt><dd>Todos os agrupamentos</dd></div>			<div class="evento__ics-linha"><dt class="visualmente-oculto">Calendário</dt><dd><button type="button" class="evento__ics" hidden>Adicionar ao meu calendário</button></dd></div>		</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Exemplo: Conselho de N\u00facleo&quot;,&quot;i&quot;:&quot;2027-01-22&quot;,&quot;f&quot;:&quot;2027-01-22&quot;,&quot;h&quot;:&quot;21h30&quot;,&quot;l&quot;:&quot;Sede do N\u00facleo&quot;,&quot;r&quot;:&quot;Atividade de demonstra\u00e7\u00e3o. Substituir pelas datas do Plano Anual 2026-27.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">22</span><span class="evento__mes">jan. 2027</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Exemplo: Conselho de Núcleo</h3>
 			<p class="evento__resumo">Atividade de demonstração. Substituir pelas datas do Plano Anual 2026-27.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>22 de janeiro de 2027<br>21h30</dd></div>
-			<div><dt>Onde</dt><dd>Sede do Núcleo</dd></div>			<div><dt>Para quem</dt><dd>Chefes de Agrupamento</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Sede do Núcleo</dd></div>			<div><dt>Para quem</dt><dd>Chefes de Agrupamento</dd></div>			<div class="evento__ics-linha"><dt class="visualmente-oculto">Calendário</dt><dd><button type="button" class="evento__ics" hidden>Adicionar ao meu calendário</button></dd></div>		</dl>
 	</li>
 	</ul>
 			</section>
 		<section class="passadas" aria-labelledby="t-pas">
 		<h2 id="t-pas" class="titulo-bloco">Já aconteceram</h2>
-		<ul class="eventos eventos--passados">	<li class="evento">
+		<ul class="eventos eventos--passados">	<li class="evento" data-ev='{&quot;t&quot;:&quot;INDABA 2026&quot;,&quot;i&quot;:&quot;2026-10-24&quot;,&quot;f&quot;:&quot;2026-10-25&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;Chalet Adams&quot;,&quot;r&quot;:&quot;Fim de semana com o desafio \u00abTens coragem de desafiar os teus medos?\u00bb.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">24</span><span class="evento__mes">out. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">INDABA 2026</h3>
 			<p class="evento__resumo">Fim de semana com o desafio «Tens coragem de desafiar os teus medos?».</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>24 a 25 de outubro de 2026</dd></div>
-			<div><dt>Onde</dt><dd>Chalet Adams</dd></div>			<div><dt>Para quem</dt><dd>Candidatos e dirigentes</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Chalet Adams</dd></div>			<div><dt>Para quem</dt><dd>Candidatos e dirigentes</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;XX Ciclo de Cen\u00e1culo&quot;,&quot;i&quot;:&quot;2026-03-13&quot;,&quot;f&quot;:&quot;2026-03-15&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;Centro de Estudos Camilianos, Seide&quot;,&quot;r&quot;:&quot;\u00abRecorda o Caminho que Te Revela\u00bb.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">13</span><span class="evento__mes">mar. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">XX Ciclo de Cenáculo</h3>
 			<p class="evento__resumo">«Recorda o Caminho que Te Revela».</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>13 a 15 de março de 2026</dd></div>
-			<div><dt>Onde</dt><dd>Centro de Estudos Camilianos, Seide</dd></div>			<div><dt>Para quem</dt><dd>Caminheiros</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Centro de Estudos Camilianos, Seide</dd></div>			<div><dt>Para quem</dt><dd>Caminheiros</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Encontro de Guias&quot;,&quot;i&quot;:&quot;2026-02-07&quot;,&quot;f&quot;:&quot;2026-02-07&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;EB de Vale do Este, Arnoso&quot;,&quot;r&quot;:&quot;Dia dedicado \u00e0 sa\u00fade mental e ao sistema de progresso.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">7</span><span class="evento__mes">fev. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Encontro de Guias</h3>
 			<p class="evento__resumo">Dia dedicado à saúde mental e ao sistema de progresso.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>7 de fevereiro de 2026</dd></div>
-			<div><dt>Onde</dt><dd>EB de Vale do Este, Arnoso</dd></div>			<div><dt>Para quem</dt><dd>Guias das quatro secções e dirigentes</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>EB de Vale do Este, Arnoso</dd></div>			<div><dt>Para quem</dt><dd>Guias das quatro secções e dirigentes</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Encontros Pedag\u00f3gicos: Pioneiros e Caminheiros&quot;,&quot;i&quot;:&quot;2026-01-29&quot;,&quot;f&quot;:&quot;2026-01-29&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;&quot;,&quot;r&quot;:&quot;Tradi\u00e7\u00e3o e inova\u00e7\u00e3o nas comunidades e nos cl\u00e3s.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">29</span><span class="evento__mes">jan. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Encontros Pedagógicos: Pioneiros e Caminheiros</h3>
 			<p class="evento__resumo">Tradição e inovação nas comunidades e nos clãs.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>29 de janeiro de 2026</dd></div>
-						<div><dt>Para quem</dt><dd>Dirigentes da III e IV Secções</dd></div>		</dl>
+						<div><dt>Para quem</dt><dd>Dirigentes da III e IV Secções</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Conselho de N\u00facleo&quot;,&quot;i&quot;:&quot;2026-01-23&quot;,&quot;f&quot;:&quot;2026-01-23&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;&quot;,&quot;r&quot;:&quot;&quot;}'>
 		<p class="evento__data"><span class="evento__dia">23</span><span class="evento__mes">jan. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Conselho de Núcleo</h3>
 					</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>23 de janeiro de 2026</dd></div>
-						<div><dt>Para quem</dt><dd>Chefes de Agrupamento e Junta de Núcleo</dd></div>		</dl>
+						<div><dt>Para quem</dt><dd>Chefes de Agrupamento e Junta de Núcleo</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Encontros Pedag\u00f3gicos: Lobitos e Exploradores&quot;,&quot;i&quot;:&quot;2026-01-15&quot;,&quot;f&quot;:&quot;2026-01-15&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;Sal\u00e3o Paroquial de Telhado&quot;,&quot;r&quot;:&quot;Ferramentas para aplicar o sistema de progresso.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">15</span><span class="evento__mes">jan. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Encontros Pedagógicos: Lobitos e Exploradores</h3>
 			<p class="evento__resumo">Ferramentas para aplicar o sistema de progresso.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>15 de janeiro de 2026</dd></div>
-			<div><dt>Onde</dt><dd>Salão Paroquial de Telhado</dd></div>			<div><dt>Para quem</dt><dd>Dirigentes da I e II Secções</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Salão Paroquial de Telhado</dd></div>			<div><dt>Para quem</dt><dd>Dirigentes da I e II Secções</dd></div>					</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Luz da Paz de Bel\u00e9m&quot;,&quot;i&quot;:&quot;2025-12-19&quot;,&quot;f&quot;:&quot;2025-12-19&quot;,&quot;h&quot;:&quot;&quot;,&quot;l&quot;:&quot;Nine&quot;,&quot;r&quot;:&quot;Celebra\u00e7\u00e3o do N\u00facleo com o tema \u00abArder para iluminar\u00bb.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">19</span><span class="evento__mes">dez. 2025</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Luz da Paz de Belém</h3>
 			<p class="evento__resumo">Celebração do Núcleo com o tema «Arder para iluminar».</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>19 de dezembro de 2025</dd></div>
-			<div><dt>Onde</dt><dd>Nine</dd></div>			<div><dt>Para quem</dt><dd>Guias de todos os agrupamentos</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Nine</dd></div>			<div><dt>Para quem</dt><dd>Guias de todos os agrupamentos</dd></div>					</dl>
 	</li>
 	</ul>
 	</section>
 	</div>
+<script type="application/json" id="dados-agenda">[{"id":26,"t":"Luz da Paz de Bel\u00e9m","i":"2025-12-19","f":"2025-12-19","h":"","l":"Nine","p":"Guias de todos os agrupamentos","r":"Celebra\u00e7\u00e3o do N\u00facleo com o tema \u00abArder para iluminar\u00bb."},{"id":27,"t":"Encontros Pedag\u00f3gicos: Lobitos e Exploradores","i":"2026-01-15","f":"2026-01-15","h":"","l":"Sal\u00e3o Paroquial de Telhado","p":"Dirigentes da I e II Sec\u00e7\u00f5es","r":"Ferramentas para aplicar o sistema de progresso."},{"id":28,"t":"Conselho de N\u00facleo","i":"2026-01-23","f":"2026-01-23","h":"","l":"","p":"Chefes de Agrupamento e Junta de N\u00facleo","r":""},{"id":29,"t":"Encontros Pedag\u00f3gicos: Pioneiros e Caminheiros","i":"2026-01-29","f":"2026-01-29","h":"","l":"","p":"Dirigentes da III e IV Sec\u00e7\u00f5es","r":"Tradi\u00e7\u00e3o e inova\u00e7\u00e3o nas comunidades e nos cl\u00e3s."},{"id":30,"t":"Encontro de Guias","i":"2026-02-07","f":"2026-02-07","h":"","l":"EB de Vale do Este, Arnoso","p":"Guias das quatro sec\u00e7\u00f5es e dirigentes","r":"Dia dedicado \u00e0 sa\u00fade mental e ao sistema de progresso."},{"id":31,"t":"XX Ciclo de Cen\u00e1culo","i":"2026-03-13","f":"2026-03-15","h":"","l":"Centro de Estudos Camilianos, Seide","p":"Caminheiros","r":"\u00abRecorda o Caminho que Te Revela\u00bb."},{"id":32,"t":"INDABA 2026","i":"2026-10-24","f":"2026-10-25","h":"","l":"Chalet Adams","p":"Candidatos e dirigentes","r":"Fim de semana com o desafio \u00abTens coragem de desafiar os teus medos?\u00bb."},{"id":33,"t":"Exemplo: Luz da Paz de Bel\u00e9m 2026","i":"2026-12-18","f":"2026-12-18","h":"21h00","l":"A confirmar","p":"Todos os agrupamentos","r":"Atividade de demonstra\u00e7\u00e3o para mostrar como fica a agenda. Data e local por confirmar."},{"id":34,"t":"Exemplo: Conselho de N\u00facleo","i":"2027-01-22","f":"2027-01-22","h":"21h30","l":"Sede do N\u00facleo","p":"Chefes de Agrupamento","r":"Atividade de demonstra\u00e7\u00e3o. Substituir pelas datas do Plano Anual 2026-27."}]</script>
 </main>
 <footer class="rodape">
 	<div class="envolve rodape__grelha">
@@ -190,7 +213,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</div>
 	</div>
 	<div class="envolve rodape__fim">
-		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 2.</p>
+		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 3.</p>
 		<p><a href="politica-de-privacidade.html">Política de Privacidade</a> <a href="politica-de-cookies.html">Política de Cookies</a></p>
 	</div>
 </footer>
@@ -198,6 +221,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/nucleo-famalicao/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="nucleo-js" src="site.js"></script>
+<script id="nucleo-agenda-js" src="agenda.js"></script>
 <script>
 document.addEventListener('submit',function(e){var f=e.target;
  if(f.classList.contains('procura__form')){e.preventDefault();var v=f.querySelector('select').value;location.href='agrupamentos.html'+(v?'#q='+encodeURIComponent(v):'');return;}

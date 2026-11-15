@@ -25,8 +25,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <header class="topo">
 	<div class="topo__barra envolve">
 		<a class="topo__marca" href="index.html" aria-label="Núcleo de Escuteiros de Famalicão – página inicial">
-			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="52" height="52">
-			<span class="topo__nome">Escuteiros<br>de Famalicão</span>
+			<img src="img/logo_verdeescuro-a91e7b.png" alt="" width="84" height="84">
 		</a>
 		<button class="topo__abrir" aria-expanded="false" aria-controls="navegacao"><span class="topo__icone" aria-hidden="true"></span><span class="topo__abrir-txt">Menu</span></button>
 		<nav id="navegacao" class="nav" aria-label="Principal">
@@ -136,9 +135,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </section>
 
 <section class="numeros-papel papel">
-	<svg class="pista" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true"><path d="M600 0 C 600 90, 180 60, 150 180" /></svg>
+	<svg class="pista" viewBox="0 0 1200 180" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="pista-m" maskUnits="userSpaceOnUse"><path class="pista__mascara" d="M600 0 C 600 90, 180 60, 150 180" /></mask></defs><path class="pista__linha" d="M600 0 C 600 90, 180 60, 150 180" mask="url(#pista-m)" /></svg>
 	<div class="numeros envolve">
-		<p class="numeros__frase"><strong>2 814 escuteiros</strong> em <strong>42 agrupamentos</strong>, acompanhados por <strong>653 dirigentes voluntários.</strong></p>
+		<p class="numeros__frase"><strong><span data-conta-ate="2814">2 814</span> escuteiros</strong> em <strong><span data-conta-ate="42">42</span> agrupamentos</strong>, acompanhados por <strong><span data-conta-ate="653">653</span> dirigentes voluntários.</strong></p>
 		<div class="numeros__lado">
 			<p>O Núcleo une, acompanha e forma. Apoia os agrupamentos na gestão, na formação de dirigentes e no material, e organiza os encontros que juntam todo o concelho.</p>
 			<p><a class="ligacao" href="projeto-tau.html">Ver os números do Projeto Tau</a></p>
@@ -152,34 +151,70 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		<ol class="seccoes__lista">
 						<li class="seccao-cartao" style="--cor:#FFC100;--tinta:#0F2A1C">
 				<a href="lobitos.html">
-					<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Lobito-2048x2048-1-475d96.png" alt="" loading="lazy"></span>
-					<span class="seccao-cartao__idade">6 aos 10 anos</span>
-					<span class="seccao-cartao__nome">Lobitos</span>
-					<span class="seccao-cartao__resumo">Descobrem o mundo com curiosidade e aprendem a viver em grupo, através do jogo e da aventura.</span>
+					<span class="seccao-cartao__frente">
+						<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Lobito-2048x2048-1-475d96.png" alt="" loading="lazy"></span>
+						<span class="seccao-cartao__idade">6 aos 10 anos</span>
+						<span class="seccao-cartao__nome">Lobitos</span>
+						<span class="seccao-cartao__resumo">Descobrem o mundo com curiosidade e aprendem a viver em grupo, através do jogo e da aventura.</span>
+					</span>
+					<span class="seccao-cartao__verso grao" aria-hidden="true">
+						<span class="seccao-cartao__efetivo">672</span>
+						<span class="seccao-cartao__efetivo-rot">lobitos no Núcleo</span>
+						<span class="seccao-cartao__linha"><b>Unidade</b> Alcateia</span>
+						<span class="seccao-cartao__linha"><b>Patrono</b> São Francisco de Assis</span>
+						<span class="seccao-cartao__lema">«Da melhor vontade»</span>						<span class="seccao-cartao__ir">Conhecer os Lobitos</span>
+					</span>
 				</a>
 			</li>
 						<li class="seccao-cartao" style="--cor:#72B52C;--tinta:#0F2A1C">
 				<a href="exploradores.html">
-					<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Explorador-2048x2048-1-c9abee.png" alt="" loading="lazy"></span>
-					<span class="seccao-cartao__idade">10 aos 14 anos</span>
-					<span class="seccao-cartao__nome">Exploradores</span>
-					<span class="seccao-cartao__resumo">Imaginam, planeiam e vivem as suas próprias aventuras, à procura da Terra Prometida.</span>
+					<span class="seccao-cartao__frente">
+						<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Explorador-2048x2048-1-c9abee.png" alt="" loading="lazy"></span>
+						<span class="seccao-cartao__idade">10 aos 14 anos</span>
+						<span class="seccao-cartao__nome">Exploradores</span>
+						<span class="seccao-cartao__resumo">Imaginam, planeiam e vivem as suas próprias aventuras, à procura da Terra Prometida.</span>
+					</span>
+					<span class="seccao-cartao__verso grao" aria-hidden="true">
+						<span class="seccao-cartao__efetivo">677</span>
+						<span class="seccao-cartao__efetivo-rot">exploradores no Núcleo</span>
+						<span class="seccao-cartao__linha"><b>Unidade</b> Expedição</span>
+						<span class="seccao-cartao__linha"><b>Patrono</b> São Tiago Maior</span>
+												<span class="seccao-cartao__ir">Conhecer os Exploradores</span>
+					</span>
 				</a>
 			</li>
 						<li class="seccao-cartao" style="--cor:#1C98D2;--tinta:#0F2A1C">
 				<a href="pioneiros.html">
-					<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Pioneiros-2048x2048-1-1a421a.png" alt="" loading="lazy"></span>
-					<span class="seccao-cartao__idade">14 aos 18 anos</span>
-					<span class="seccao-cartao__nome">Pioneiros</span>
-					<span class="seccao-cartao__resumo">Querem fazer diferente: inovam, assumem responsabilidades e passam das ideias à ação.</span>
+					<span class="seccao-cartao__frente">
+						<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Pioneiros-2048x2048-1-1a421a.png" alt="" loading="lazy"></span>
+						<span class="seccao-cartao__idade">14 aos 18 anos</span>
+						<span class="seccao-cartao__nome">Pioneiros</span>
+						<span class="seccao-cartao__resumo">Querem fazer diferente: inovam, assumem responsabilidades e passam das ideias à ação.</span>
+					</span>
+					<span class="seccao-cartao__verso grao" aria-hidden="true">
+						<span class="seccao-cartao__efetivo">498</span>
+						<span class="seccao-cartao__efetivo-rot">pioneiros no Núcleo</span>
+						<span class="seccao-cartao__linha"><b>Unidade</b> Comunidade</span>
+						<span class="seccao-cartao__linha"><b>Patrono</b> São Pedro</span>
+						<span class="seccao-cartao__lema">«Saber, Querer e Agir»</span>						<span class="seccao-cartao__ir">Conhecer os Pioneiros</span>
+					</span>
 				</a>
 			</li>
 						<li class="seccao-cartao seccao-cartao--claro" style="--cor:#C6161C;--tinta:#FFFFFF">
 				<a href="caminheiros.html">
-					<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Caminheiros-2048x2048-1-07c5f9.png" alt="" loading="lazy"></span>
-					<span class="seccao-cartao__idade">18 aos 22 anos</span>
-					<span class="seccao-cartao__nome">Caminheiros</span>
-					<span class="seccao-cartao__resumo">Fazem o seu Caminho como líderes, servidores e cidadãos ativos, construindo pontes de serviço.</span>
+					<span class="seccao-cartao__frente">
+						<span class="seccao-cartao__fundo grao"><img src="img/Seccoes_Caminheiros-2048x2048-1-07c5f9.png" alt="" loading="lazy"></span>
+						<span class="seccao-cartao__idade">18 aos 22 anos</span>
+						<span class="seccao-cartao__nome">Caminheiros</span>
+						<span class="seccao-cartao__resumo">Fazem o seu Caminho como líderes, servidores e cidadãos ativos, construindo pontes de serviço.</span>
+					</span>
+					<span class="seccao-cartao__verso grao" aria-hidden="true">
+						<span class="seccao-cartao__efetivo">314</span>
+						<span class="seccao-cartao__efetivo-rot">caminheiros no Núcleo</span>
+						<span class="seccao-cartao__linha"><b>Unidade</b> Clã</span>
+						<span class="seccao-cartao__linha"><b>Patrono</b> São Paulo</span>
+												<span class="seccao-cartao__ir">Conhecer os Caminheiros</span>
+					</span>
 				</a>
 			</li>
 					</ol>
@@ -209,6 +244,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<li><figure class="polaroid"><img src="img/ACANUC_2024_DIA-5_024-scaled-bef893.jpg" alt="Escuteiros deitados na relva a descansar, num acampamento" loading="lazy"><figcaption>ACANUC 2024</figcaption></figure></li>
 			<li><figure class="polaroid"><img src="img/IMG_1150-326ced.jpg" alt="Ponte de madeira no campo do CENF" loading="lazy"><figcaption>O nosso CENF</figcaption></figure></li>
 		</ul>
+		<p class="mural__dica" aria-hidden="true">Arrasta as fotografias</p>
 	</div>
 </section>
 
@@ -264,23 +300,23 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			<h2 id="t-agenda" class="titulo-bloco">Próximas atividades</h2>
 			<a class="ligacao" href="agenda.html">Ver a agenda</a>
 		</div>
-		<ul class="eventos">	<li class="evento">
+		<ul class="eventos">	<li class="evento" data-ev='{&quot;t&quot;:&quot;Exemplo: Luz da Paz de Bel\u00e9m 2026&quot;,&quot;i&quot;:&quot;2026-12-18&quot;,&quot;f&quot;:&quot;2026-12-18&quot;,&quot;h&quot;:&quot;21h00&quot;,&quot;l&quot;:&quot;A confirmar&quot;,&quot;r&quot;:&quot;Atividade de demonstra\u00e7\u00e3o para mostrar como fica a agenda. Data e local por confirmar.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">18</span><span class="evento__mes">dez. 2026</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Exemplo: Luz da Paz de Belém 2026</h3>
 			<p class="evento__resumo">Atividade de demonstração para mostrar como fica a agenda. Data e local por confirmar.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>18 de dezembro de 2026<br>21h00</dd></div>
-			<div><dt>Onde</dt><dd>A confirmar</dd></div>			<div><dt>Para quem</dt><dd>Todos os agrupamentos</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>A confirmar</dd></div>			<div><dt>Para quem</dt><dd>Todos os agrupamentos</dd></div>			<div class="evento__ics-linha"><dt class="visualmente-oculto">Calendário</dt><dd><button type="button" class="evento__ics" hidden>Adicionar ao meu calendário</button></dd></div>		</dl>
 	</li>
-		<li class="evento">
+		<li class="evento" data-ev='{&quot;t&quot;:&quot;Exemplo: Conselho de N\u00facleo&quot;,&quot;i&quot;:&quot;2027-01-22&quot;,&quot;f&quot;:&quot;2027-01-22&quot;,&quot;h&quot;:&quot;21h30&quot;,&quot;l&quot;:&quot;Sede do N\u00facleo&quot;,&quot;r&quot;:&quot;Atividade de demonstra\u00e7\u00e3o. Substituir pelas datas do Plano Anual 2026-27.&quot;}'>
 		<p class="evento__data"><span class="evento__dia">22</span><span class="evento__mes">jan. 2027</span></p>
 		<div class="evento__corpo">
 			<h3 class="evento__titulo">Exemplo: Conselho de Núcleo</h3>
 			<p class="evento__resumo">Atividade de demonstração. Substituir pelas datas do Plano Anual 2026-27.</p>		</div>
 		<dl class="evento__info">
 			<div><dt>Quando</dt><dd>22 de janeiro de 2027<br>21h30</dd></div>
-			<div><dt>Onde</dt><dd>Sede do Núcleo</dd></div>			<div><dt>Para quem</dt><dd>Chefes de Agrupamento</dd></div>		</dl>
+			<div><dt>Onde</dt><dd>Sede do Núcleo</dd></div>			<div><dt>Para quem</dt><dd>Chefes de Agrupamento</dd></div>			<div class="evento__ics-linha"><dt class="visualmente-oculto">Calendário</dt><dd><button type="button" class="evento__ics" hidden>Adicionar ao meu calendário</button></dd></div>		</dl>
 	</li>
 	</ul>
 	</div>
@@ -334,7 +370,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</div>
 	</div>
 	<div class="envolve rodape__fim">
-		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 2.</p>
+		<p>© 2026 Núcleo de Escuteiros de Famalicão. Protótipo, versão 3.</p>
 		<p><a href="politica-de-privacidade.html">Política de Privacidade</a> <a href="politica-de-cookies.html">Política de Cookies</a></p>
 	</div>
 </footer>

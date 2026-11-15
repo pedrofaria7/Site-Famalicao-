@@ -73,3 +73,86 @@
 		}
 	});
 })();
+
+/* ---------- v3: interações ---------- */
+(function () {
+	var reduz = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+	// Adicionar ao calendário (.ics)
+	window.nucleoICS = function (e) {
+		var d = function (s, mais) { var p = s.split('-'); var x = new Date(+p[0], +p[1] - 1, +p[2] + (mais || 0)); return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()); };
+		var limpa = function (s) { return (s || '').replace(/[,;\\]/g, function (c) { return '\\' + c; }).replace(/\n/g, '\\n'); };
+		var ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Nucleo de Famalicao//Agenda//PT', 'BEGIN:VEVENT',
+			'UID:' + d(e.i) + '-' + Math.random().toString(36).slice(2) + '@famalicao.escutismo.pt',
+			'DTSTAMP:' + new Date().toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
+			'DTSTART;VALUE=DATE:' + d(e.i), 'DTEND;VALUE=DATE:' + d(e.f || e.i, 1),
+			'SUMMARY:' + limpa(e.t), 'LOCATION:' + limpa(e.l),
+			'DESCRIPTION:' + limpa((e.h ? e.h + '. ' : '') + (e.r || '')), 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+		var a = document.createElement('a');
+		a.href = URL.createObjectURL(new Blob([ics], { type: 'text/calendar' }));
+		a.download = (e.t || 'atividade').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-') + '.ics';
+		document.body.appendChild(a); a.click(); a.remove();
+	};
+	document.querySelectorAll('.evento[data-ev]').forEach(function (li) {
+		var b = li.querySelector('.evento__ics');
+		if (!b) return;
+		b.hidden = false;
+		b.addEventListener('click', function () { window.nucleoICS(JSON.parse(li.getAttribute('data-ev'))); });
+	});
+
+	// Trilho que se desenha ao aparecer
+	var trilhos = document.querySelectorAll('.pista__mascara');
+	trilhos.forEach(function (p) {
+		var L = p.getTotalLength();
+		p.style.strokeDasharray = L;
+		p.style.strokeDashoffset = reduz ? 0 : L;
+	});
+	// Números que contam
+	var conta = function (el) {
+		var alvo = +el.getAttribute('data-conta-ate'), t0 = null, dur = 1400;
+		var fmt = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' '); };
+		var passo = function (t) {
+			if (!t0) t0 = t;
+			var k = Math.min(1, (t - t0) / dur);
+			el.textContent = fmt(Math.round(alvo * (1 - Math.pow(1 - k, 3))));
+			if (k < 1) requestAnimationFrame(passo);
+		};
+		requestAnimationFrame(passo);
+	};
+	if ('IntersectionObserver' in window && !reduz) {
+		var io = new IntersectionObserver(function (ents) {
+			ents.forEach(function (en) {
+				if (!en.isIntersecting) return;
+				var el = en.target;
+				if (el.classList.contains('pista__mascara')) { el.style.transition = 'stroke-dashoffset 1.8s ease-in-out'; el.style.strokeDashoffset = 0; }
+				if (el.hasAttribute('data-conta-ate')) conta(el);
+				io.unobserve(el);
+			});
+		}, { threshold: .3 });
+		trilhos.forEach(function (p) { io.observe(p); });
+		document.querySelectorAll('[data-conta-ate]').forEach(function (n) { n.textContent = '0'; io.observe(n); });
+	}
+
+	// Polaroids arrastáveis no mural
+	if (window.matchMedia('(pointer: fine)').matches) {
+		var z = 5;
+		document.querySelectorAll('.mural .polaroid').forEach(function (p) {
+			var x = 0, y = 0, sx, sy, ativo = false;
+			p.addEventListener('pointerdown', function (e) {
+				ativo = true; sx = e.clientX - x; sy = e.clientY - y;
+				p.setPointerCapture(e.pointerId); p.classList.add('a-arrastar'); p.style.zIndex = ++z;
+				e.preventDefault();
+			});
+			p.addEventListener('pointermove', function (e) {
+				if (!ativo) return;
+				x = e.clientX - sx; y = e.clientY - sy;
+				p.style.setProperty('--dx', x + 'px'); p.style.setProperty('--dy', y + 'px');
+			});
+			var fim = function () { ativo = false; p.classList.remove('a-arrastar'); };
+			p.addEventListener('pointerup', fim); p.addEventListener('pointercancel', fim);
+		});
+	} else {
+		var dica = document.querySelector('.mural__dica'); if (dica) dica.hidden = true;
+	}
+})();
