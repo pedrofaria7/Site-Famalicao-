@@ -156,3 +156,31 @@
 		var dica = document.querySelector('.mural__dica'); if (dica) dica.hidden = true;
 	}
 })();
+
+/* Títulos grandes nunca partem palavras: encolhem até caberem */
+(function () {
+	var titulos = document.querySelectorAll('.sec-cab__titulo, .cab__titulo, .hero__titulo, .artigo__titulo, .faixa-foto blockquote p');
+	if (!titulos.length) return;
+	var ajusta = function () {
+		titulos.forEach(function (el) {
+			el.style.fontSize = '';
+			var tam = parseFloat(getComputedStyle(el).fontSize), min = 28, n = 0;
+			// mede a palavra mais comprida contra a largura disponível
+			var cabe = function () {
+				var w = el.clientWidth, maior = 0;
+				var r = document.createRange();
+				var palavras = el.textContent.trim().split(/\s+/);
+				var sonda = document.createElement('span');
+				sonda.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;font:inherit;letter-spacing:inherit;font-stretch:inherit';
+				el.appendChild(sonda);
+				palavras.forEach(function (p) { sonda.textContent = p; maior = Math.max(maior, sonda.getBoundingClientRect().width); });
+				sonda.remove();
+				return maior <= w + 1;
+			};
+			while (!cabe() && tam > min && n++ < 40) { tam *= 0.95; el.style.fontSize = tam + 'px'; }
+		});
+	};
+	ajusta();
+	if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajusta);
+	var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(ajusta, 120); });
+})();

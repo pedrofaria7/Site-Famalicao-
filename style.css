@@ -583,8 +583,9 @@ img.faixa { object-fit: contain !important; background: var(--noite) !important;
 .cenf-bloco p { margin-bottom: 24px; max-width: 46ch; }
 
 /* Títulos das secções: o tamanho ajusta-se ao comprimento do nome */
-.sec-cab__titulo { font-size: clamp(3rem, calc((50vw - 140px) / (var(--len, 8) * .47)), 10rem); overflow-wrap: anywhere; }
-@media (max-width: 900px) { .sec-cab__titulo { font-size: clamp(2.75rem, calc((100vw - 48px) / (var(--len, 8) * .47)), 7rem); } }
+.sec-cab__titulo { font-size: clamp(2.5rem, calc((50vw - 140px) / (var(--len, 8) * .6)), 10rem); overflow-wrap: normal; word-break: keep-all; hyphens: none; white-space: nowrap; }
+@media (max-width: 900px) { .sec-cab__titulo { font-size: clamp(2.25rem, calc((100vw - 48px) / (var(--len, 8) * .6)), 7rem); } }
+.cab__titulo, .hero__titulo, .artigo__titulo { overflow-wrap: normal; hyphens: none; }
 
 /* Marca de água igual em todas as memórias */
 .recorte__foto { position: relative; display: block; }
