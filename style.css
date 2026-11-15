@@ -463,10 +463,10 @@ img.faixa { object-fit: contain !important; background: var(--noite) !important;
    v2 — identidade escutista: papel, lona, trilho, lenço, polaroids
    ========================================================= */
 .grao { position: relative; isolation: isolate; }
-.grao::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .5; mix-blend-mode: overlay;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.grao::before { content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: .35;
+	background-image: url("assets/grao.png"); }
 .papel { background-color: var(--creme);
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .35 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+	background-image: url("assets/papel.png"); }
 
 /* Hero com polaroids a atravessar para a banda amarela */
 .hero { overflow: visible; z-index: 3; }
@@ -542,11 +542,11 @@ img.faixa { object-fit: contain !important; background: var(--noite) !important;
 
 /* Lona: textura nas superfícies escuras e verdes */
 .cab, .tau, .sec-grupos, .rodape, .cenf-bloco { position: relative; isolation: isolate; }
-.cab::before, .tau::before, .sec-grupos::before, .rodape::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .45; mix-blend-mode: overlay;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+.cab::before, .tau::before, .sec-grupos::before, .rodape::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: .3;
+	background-image: url("assets/grao.png"); }
 .cab--foto::before { z-index: 2; }
 .agenda-bloco.papel, .equipa, .efetivo, .recursos, .pedido { background-color: var(--creme); }
-.equipa, .efetivo, .recursos, .pedido { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .35 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E"); }
+.equipa, .efetivo, .recursos, .pedido { background-image: url("assets/papel.png"); }
 .campo input, .campo textarea, .material input, .filtro input { background: #FFFDF8; }
 
 /* Memórias como caderno de recortes */
