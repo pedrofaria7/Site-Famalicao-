@@ -761,3 +761,22 @@ img { max-width: 100%; }
 	.rodape { font-size: .875rem; }
 	.cab { padding-block: 48px 36px; }
 }
+
+/* v3.3 — menu de telemóvel em ecrã inteiro, escuro, separado do conteúdo */
+@media (max-width: 1100px) {
+	.nav { position: fixed; top: 80px; left: 0; right: 0; bottom: 0; height: auto; max-height: none; padding: 16px var(--margem) calc(32px + env(safe-area-inset-bottom)); background: var(--noite); border: 0; overflow-y: auto; overscroll-behavior: contain; z-index: 60; }
+	.nav::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .3; background-image: url("assets/grao.png"); pointer-events: none; }
+	.menu-aberto { overflow: hidden; }
+	.menu-aberto .topo { border-bottom-color: var(--noite); }
+	.nav__lista > li { border-bottom: 1px solid rgba(255, 255, 255, .14); }
+	.nav__lista > li > a { color: var(--branco); font-family: var(--display); font-stretch: 75%; font-weight: 800; font-size: 1.9rem; line-height: 1.1; padding: 14px 0; }
+	.nav__lista > li > a:hover, .nav__lista > li.ativo > a, .nav__lista > li.current-menu-item > a { text-decoration-color: var(--amarelo); }
+	.nav__sub-botao { color: var(--amarelo); }
+	.nav__lista > li.aberto > .nav__sub-botao::before { transform: translateY(2px) rotate(-135deg); }
+	.nav .sub-menu { padding: 0 0 14px; }
+	.nav .sub-menu a { color: #DCE7DD; font-size: 1.0625rem; font-weight: 600; padding: 9px 0 9px 16px; border-left: 3px solid rgba(255, 193, 0, .5); }
+	.nav .sub-menu a:hover, .nav .sub-menu .current-menu-item > a { background: none; color: var(--amarelo); border-left-color: var(--amarelo); }
+	.nav__cenf { margin-top: 28px; align-self: flex-start; }
+	.nav__cenf:hover { background: var(--branco); color: var(--noite); }
+	.nav :focus-visible { outline-color: var(--amarelo); }
+}

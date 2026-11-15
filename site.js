@@ -3,11 +3,15 @@
 	var botao = document.querySelector('.topo__abrir');
 	var nav = document.getElementById('navegacao');
 	if (botao && nav) {
+		var fecha = function () { botao.setAttribute('aria-expanded', 'false'); document.body.classList.remove('menu-aberto'); botao.querySelector('.topo__abrir-txt').textContent = 'Menu'; };
 		botao.addEventListener('click', function () {
 			var aberto = botao.getAttribute('aria-expanded') === 'true';
 			botao.setAttribute('aria-expanded', String(!aberto));
 			document.body.classList.toggle('menu-aberto', !aberto);
+			botao.querySelector('.topo__abrir-txt').textContent = aberto ? 'Menu' : 'Fechar';
 		});
+		document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && document.body.classList.contains('menu-aberto')) { fecha(); botao.focus(); } });
+		nav.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { if (a.getAttribute('href') !== '#') fecha(); }); });
 	}
 
 	// Submenus: botão próprio para teclado e toque
